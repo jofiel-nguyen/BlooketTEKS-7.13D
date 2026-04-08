@@ -33,7 +33,7 @@ function startGame() {
     document.getElementById('start-btn').style.display = 'none';
     currentQIndex = 0;
     gold = 0;
-    timeLeft = 180;
+    timeLeft = 120;
     updateStats();
     showQuestion();
     
