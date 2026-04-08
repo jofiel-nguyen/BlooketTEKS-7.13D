@@ -22,6 +22,26 @@ const questions = [
     { q: "Chickens are bred to produce 300 eggs a year.", a: "Artificial" },
     { q: "The fastest gazelles escape the lion.", a: "Natural" },
     { q: "Purebred Siamese cats have specific blue eyes.", a: "Artificial" }
+    { q: "Crops are modified to have a longer shelf life.", a: "Artificial" },
+    { q: "Male peacocks have heavy, colorful feathers to find mates.", a: "Natural" },
+    { q: "A lab grows roses that have no thorns.", a: "Artificial" },
+    { q: "Polar bears have white fur to blend into the ice.", a: "Natural" },
+    { q: "Dairy cows are bred to produce more milk.", a: "Artificial" },
+    { q: "Darwin's finches developed different beak shapes for food.", a: "Natural" },
+    { q: "Labradoodles were created by crossing two different breeds.", a: "Artificial" },
+    { q: "Tree frogs developed bright colors to warn predators of poison.", a: "Natural" },
+    { q: "Broccoli and Kale were both bred from wild mustard plants.", a: "Artificial" },
+    { q: "Peppered moths became darker to blend into soot-covered trees.", a: "Natural" },
+    { q: "Horses are bred for high speed in racing.", a: "Artificial" },
+    { q: "Deep-sea fish have glowing lures to attract prey.", a: "Natural" },
+    { q: "A botanist cross-pollinates the two largest pumpkins.", a: "Artificial" },
+    { q: "Over time, elephants without tusks survive poachers better.", a: "Natural" },
+    { q: "Bulldogs are bred to have a flat face and stocky build.", a: "Artificial" },
+    { q: "Cacti store water in their stems to survive the desert.", a: "Natural" },
+    { q: "Apples are bred to be sweeter and crunchier than wild ones.", a: "Artificial" },
+    { q: "Hummingbirds have long beaks to reach nectar in flowers.", a: "Natural" },
+    { q: "Pigeons are bred to have unusual feather patterns for shows.", a: "Artificial" },
+    { q: "A snake's camouflaged skin helps it hide from birds.", a: "Natural" }
 ];
 
 let gold = 0;
