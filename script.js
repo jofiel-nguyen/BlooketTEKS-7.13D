@@ -1,4 +1,5 @@
 const questions = [
+    
     { q: "A farmer breeds only the largest cows.", a: "Artificial" },
     { q: "A cheetah runs fast to catch its prey.", a: "Natural" },
     { q: "Dogs were bred from wolves for hunting.", a: "Artificial" },
@@ -6,7 +7,21 @@ const questions = [
     { q: "Corn has become larger over 1000 years.", a: "Artificial" },
     { q: "Cacti have spines to prevent water loss.", a: "Natural" },
     { q: "A scientist selects disease-resistant rice.", a: "Artificial" },
-    { q: "Giraffes with longer necks survive better.", a: "Natural" }
+    { q: "Giraffes with longer necks survive better.", a: "Natural" },
+    { q: "Bacteria survive an antibiotic treatment.", a: "Natural" },
+    { q: "Teacup poodles are bred to be very small.", a: "Artificial" },
+    { q: "Wild rabbits with white fur hide in the snow.", a: "Natural" },
+    { q: "A rancher picks the sheep with the softest wool.", a: "Artificial" },
+    { q: "Insects become resistant to a chemical spray.", a: "Natural" },
+    { q: "Seedless watermelons are created by farmers.", a: "Artificial" },
+    { q: "Brightly colored male birds attract more mates.", a: "Natural" },
+    { q: "Goldfish are bred to have double tails.", a: "Artificial" },
+    { q: "Arctic foxes have thick fur to stay warm.", a: "Natural" },
+    { q: "Wheat is modified to grow in very dry soil.", a: "Artificial" },
+    { q: "A hawk has sharp talons for catching mice.", a: "Natural" },
+    { q: "Chickens are bred to produce 300 eggs a year.", a: "Artificial" },
+    { q: "The fastest gazelles escape the lion.", a: "Natural" },
+    { q: "Purebred Siamese cats have specific blue eyes.", a: "Artificial" }
 ];
 
 let gold = 0;
