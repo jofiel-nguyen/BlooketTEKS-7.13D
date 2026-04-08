@@ -1,5 +1,4 @@
 const questions = [
-    
     { q: "A farmer breeds only the largest cows.", a: "Artificial" },
     { q: "A cheetah runs fast to catch its prey.", a: "Natural" },
     { q: "Dogs were bred from wolves for hunting.", a: "Artificial" },
@@ -21,7 +20,7 @@ const questions = [
     { q: "A hawk has sharp talons for catching mice.", a: "Natural" },
     { q: "Chickens are bred to produce 300 eggs a year.", a: "Artificial" },
     { q: "The fastest gazelles escape the lion.", a: "Natural" },
-    { q: "Purebred Siamese cats have specific blue eyes.", a: "Artificial" }
+    { q: "Purebred Siamese cats have specific blue eyes.", a: "Artificial" },
     { q: "Crops are modified to have a longer shelf life.", a: "Artificial" },
     { q: "Male peacocks have heavy, colorful feathers to find mates.", a: "Natural" },
     { q: "A lab grows roses that have no thorns.", a: "Artificial" },
@@ -50,6 +49,9 @@ let timerInterval;
 let currentQIndex = 0;
 
 function startGame() {
+    // Shuffle questions so the order is different every time
+    questions.sort(() => Math.random() - 0.5);
+    
     document.getElementById('start-btn').style.display = 'none';
     currentQIndex = 0;
     gold = 0;
@@ -72,7 +74,11 @@ function updateStats() {
 }
 
 function showQuestion() {
-    if (currentQIndex >= questions.length) currentQIndex = 0; // Loop questions
+    if (currentQIndex >= questions.length) {
+        // Re-shuffle if we run out of questions before time is up
+        questions.sort(() => Math.random() - 0.5);
+        currentQIndex = 0;
+    }
     
     const q = questions[currentQIndex];
     document.getElementById('question-text').innerText = q.q;
@@ -89,27 +95,47 @@ function checkAnswer(choice) {
     const feedback = document.getElementById('feedback');
     
     if (choice === correct) {
-        gold += Math.floor(Math.random() * 50) + 10; // Earn 10-60 gold
+        // Correct gives 10-60 gold
+        gold += Math.floor(Math.random() * 51) + 10; 
         feedback.innerText = "💰 Correct! +GOLD";
         feedback.style.color = "#2ecc71";
     } else {
-        gold = Math.max(0, gold - 20); // Lose 20 gold
-        feedback.innerText = "💥 Wrong! -GOLD";
+        // Hard mode penalty: -40 gold
+        gold = Math.max(0, gold - 40); 
+        feedback.innerText = "💥 Wrong! -40 GOLD";
         feedback.style.color = "#e74c3c";
     }
     
     currentQIndex++;
+    // Disable buttons during transition to prevent double-clicking
+    const buttons = document.querySelectorAll('.option-btn');
+    buttons.forEach(btn => btn.disabled = true);
+
     setTimeout(() => {
         feedback.innerText = "";
         showQuestion();
     }, 600);
 }
 
+function getPrize(score) {
+    if (score >= 5000) return { name: "BIG PLUSH! 🧸🏆", color: "#f1c40f" };
+    if (score >= 3500) return { name: "Small Plush 🧸", color: "#e67e22" };
+    if (score >= 2000) return { name: "Candy 🍬", color: "#9b59b6" };
+    if (score >= 1000) return { name: "Sticker ✨", color: "#3498db" };
+    return { name: "Better luck next time!", color: "#95a5a6" };
+}
+
 function endGame() {
     clearInterval(timerInterval);
+    const prize = getPrize(gold);
+    
     document.getElementById('question-box').innerHTML = `
-        <h2>TIME OUT!</h2>
-        <p style="font-size: 2rem;">Total Gold Earned: ${gold} 💰</p>
+        <h2 style="color: #e74c3c;">TIME OUT!</h2>
+        <p style="font-size: 1.5rem;">Final Gold: ${gold} 💰</p>
+        <div class="prize-card" style="border-color: ${prize.color}">
+            <h3 style="color: #7f8c8d; margin: 0;">YOUR PRIZE:</h3>
+            <h2 style="color: ${prize.color}; font-size: 2.5rem; margin: 10px 0;">${prize.name}</h2>
+        </div>
         <button id="start-btn" onclick="location.reload()">Try Again</button>
     `;
 }
