@@ -25,7 +25,7 @@ const questions = [
 ];
 
 let gold = 0;
-let timeLeft = 180; // 3 minutes
+let timeLeft = 120; 
 let timerInterval;
 let currentQIndex = 0;
 
